@@ -1,2 +1,2 @@
-# Bank-Teller
-Software that behaves as a bank teller to process banking transactions using Java and JavaFX.
+# Bank Teller
+ Software that behaves similarly to a bank teller using Java and JavaFX.
