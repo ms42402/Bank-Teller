@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="404.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bankteller.demo1.BankTellerController">
+    <top>
+        <TabPane prefHeight="258.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+            <tabs>
+                <Tab text="Manage Accounts">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="169.0" prefWidth="600.0">
+                            <children>
+                                <HBox layoutX="14.0" prefHeight="35.0" prefWidth="225.0">
+                                    <children>
+                                        <RadioButton fx:id="openAccount" mnemonicParsing="false" onAction="#openAccountToggles" prefHeight="35.0" prefWidth="112.0" text="Open Account">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="openClose" />
+                                 </toggleGroup></RadioButton>
+                                        <RadioButton fx:id="closeAccount" mnemonicParsing="false" onAction="#closeAccountToggles" prefHeight="35.0" prefWidth="111.0" text="Close Account" toggleGroup="$openClose" />
+                                    </children>
+                                </HBox>
+                                <Label layoutX="243.0" layoutY="9.0" prefHeight="17.0" prefWidth="93.0" text="Initial Deposit:  $" />
+                                <TextField fx:id="initialDeposit" layoutX="336.0" layoutY="5.0" />
+                                <GridPane layoutX="14.0" layoutY="35.0" prefHeight="186.0" prefWidth="572.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="281.0" minWidth="10.0" prefWidth="108.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="499.0" minWidth="10.0" prefWidth="464.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="39.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="Last Name" GridPane.rowIndex="1" />
+                                        <TextField fx:id="lname" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <Label text="Account Type" GridPane.rowIndex="3" />
+                                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                            <children>
+                                                <RadioButton fx:id="checking" mnemonicParsing="false" onAction="#closeToggles" prefHeight="28.0" prefWidth="77.0" text="Checking">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="acctType" />
+                                       </toggleGroup></RadioButton>
+                                                <RadioButton fx:id="collegeChecking" mnemonicParsing="false" onAction="#openCCToggles" prefHeight="28.0" prefWidth="120.0" text="College Checking" toggleGroup="$acctType" />
+                                                <RadioButton fx:id="savings" mnemonicParsing="false" onAction="#openLoyalty" prefHeight="28.0" prefWidth="68.0" text="Savings" toggleGroup="$acctType" />
+                                                <RadioButton fx:id="moneyMarket" mnemonicParsing="false" onAction="#closeToggles" prefHeight="28.0" prefWidth="105.0" text="Money Market" toggleGroup="$acctType" />
+                                            </children>
+                                        </HBox>
+                                        <Label text="Campus Code" GridPane.rowIndex="4" />
+                                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                            <children>
+                                                <RadioButton fx:id="newBrunswick" mnemonicParsing="false" prefHeight="27.0" prefWidth="108.0" text="New Brunswick">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="campus" />
+                                       </toggleGroup></RadioButton>
+                                                <RadioButton fx:id="newark" mnemonicParsing="false" prefHeight="27.0" prefWidth="73.0" text="Newark" toggleGroup="$campus" />
+                                                <RadioButton fx:id="camden" mnemonicParsing="false" prefHeight="27.0" prefWidth="77.0" text="Camden" toggleGroup="$campus" />
+                                            </children>
+                                        </HBox>
+                                        <Label text="Loyalty" GridPane.rowIndex="5" />
+                                        <CheckBox fx:id="loyalty" mnemonicParsing="false" text="Loyal" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                        <Label text="Date of Birth" GridPane.rowIndex="2" />
+                                        <Button fx:id="submit" mnemonicParsing="false" onAction="#accountAction" text="Submit" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <Label text="First Name" />
+                              <TextField fx:id="fname" GridPane.columnIndex="1" />
+                              <TextField fx:id="dob" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    </children>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Transactions">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <GridPane layoutX="12.0" layoutY="36.0" prefHeight="155.0" prefWidth="577.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="281.0" minWidth="10.0" prefWidth="108.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="499.0" minWidth="10.0" prefWidth="464.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="Last Name" GridPane.rowIndex="1" />
+                                        <TextField fx:id="tLname" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <Label text="Account Type" GridPane.rowIndex="3" />
+                                        <HBox prefHeight="36.0" prefWidth="466.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                            <children>
+                                                <RadioButton fx:id="tChecking" mnemonicParsing="false" prefHeight="44.0" prefWidth="77.0" text="Checking">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="tAcctType" />
+                                       </toggleGroup></RadioButton>
+                                                <RadioButton fx:id="tCChecking" mnemonicParsing="false" prefHeight="52.0" prefWidth="120.0" text="College Checking" toggleGroup="$tAcctType" />
+                                                <RadioButton fx:id="tSavings" mnemonicParsing="false" prefHeight="47.0" prefWidth="68.0" text="Savings" toggleGroup="$tAcctType" />
+                                                <RadioButton fx:id="tMoneyMarket" mnemonicParsing="false" prefHeight="60.0" prefWidth="105.0" text="Money Market" toggleGroup="$tAcctType" />
+                                            </children>
+                                        </HBox>
+                                        <Label text="Date of Birth" GridPane.rowIndex="2" />
+                                        <Button fx:id="tsubumit" mnemonicParsing="false" onAction="#transaction" text="Submit" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label text="First Name" />
+                              <TextField fx:id="tFname" GridPane.columnIndex="1" />
+                              <TextField fx:id="tdob" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    </children>
+                                </GridPane>
+                                <HBox layoutX="12.0" layoutY="2.0" prefHeight="28.0" prefWidth="171.0">
+                                    <children>
+                                        <RadioButton fx:id="deposit" mnemonicParsing="false" onAction="#openTransToggles" prefHeight="37.0" prefWidth="73.0" text="Deposit">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="transact" />
+                                 </toggleGroup></RadioButton>
+                                        <RadioButton fx:id="withdraw" mnemonicParsing="false" onAction="#openTransToggles" prefHeight="37.0" prefWidth="78.0" text="Withdraw" toggleGroup="$transact" />
+                                    </children>
+                                </HBox>
+                                <Label layoutX="183.0" layoutY="8.0" prefHeight="17.0" prefWidth="66.0" text="Amount:   $" />
+                                <TextField fx:id="amount" layoutX="249.0" layoutY="4.0" />
+                            </children></AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="List All">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="228.0" prefWidth="600.0">
+                            <children>
+                                <MenuBar prefHeight="25.0" prefWidth="600.0">
+                                    <menus>
+                                        <Menu mnemonicParsing="false" text="List">
+                                            <items>
+                                                <MenuItem mnemonicParsing="false" onAction="#print" text="List all" />
+                                                <MenuItem mnemonicParsing="false" onAction="#printByType" text="List by type" />
+                                                <MenuItem mnemonicParsing="false" onAction="#printWithFeesAndInterest" text="List with fees" />
+                                            </items>
+                                        </Menu>
+                                        <Menu mnemonicParsing="false" text="Update">
+                                            <items>
+                                                <MenuItem mnemonicParsing="false" onAction="#updateBalances" text="Update all balances" />
+                                            </items>
+                                        </Menu>
+                                    </menus>
+                                </MenuBar>
+                            </children></AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </top>
+    <bottom>
+        <TextArea fx:id="displayBox" prefHeight="145.0" prefWidth="595.0" BorderPane.alignment="CENTER" />
+    </bottom>
+</BorderPane>
